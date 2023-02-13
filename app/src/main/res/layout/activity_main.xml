@@ -10,8 +10,6 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="17dp"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -26,16 +24,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_add_task"
-        tools:layout_editor_absoluteX="154dp"
-        tools:layout_editor_absoluteY="74dp"
+
         tools:ignore="MissingConstraints" />
 
     <ListView
         android:id="@+id/listview1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="119dp"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
