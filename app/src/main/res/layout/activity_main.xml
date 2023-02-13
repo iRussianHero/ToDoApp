@@ -17,20 +17,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/field_text_editor" />
+
+        <Button
+            android:id="@+id/button1"
+            android:onClick="AddTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_add_task"
+            tools:ignore="MissingConstraints" />
+
+        <ListView
+            android:id="@+id/listview1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="MissingConstraints" />
     </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_add_task"
-
-        tools:ignore="MissingConstraints" />
-
-    <ListView
-        android:id="@+id/listview1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

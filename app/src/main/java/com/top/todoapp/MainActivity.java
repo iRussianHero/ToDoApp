@@ -3,7 +3,9 @@ package com.top.todoapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,5 +20,15 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, tasks);
         tasksList.setAdapter(adapter);
+
+        Button btn = findViewById(R.id.button1);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tasks.add("Clicked : "+clickCounter++);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
     }
 }
