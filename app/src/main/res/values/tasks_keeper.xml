@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tasks">
+        <item>First element</item>
+        <item>Second element</item>
+    </string-array>
+</resources>

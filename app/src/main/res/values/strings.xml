@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ToDoApp</string>
+    <string name="btn_add_task">Add task</string>
+    <string name="field_text_editor">Input your\'s task here...</string>
 </resources>
