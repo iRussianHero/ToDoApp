@@ -1,4 +1,4 @@
-package providers;
+package com.top.todoapp.providers;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
