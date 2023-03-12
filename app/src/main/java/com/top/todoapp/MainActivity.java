@@ -48,28 +48,6 @@ public class MainActivity extends AppCompatActivity {
                     selectedTasks.remove(user);
             }
         });
-    }
-
-    public void add_task(View view) {
-        EditText taskName = findViewById(R.id.task_name);
-        String task = taskName.getText().toString();
-        if (!task.isEmpty()) {
-            adapter.add(task);
-            taskName.setText("");
-            adapter.notifyDataSetChanged();
-        }
-    }
-
-    public void remove_task(View view) {
-        for (int i = 0; i < selectedTasks.size(); i++) {
-            adapter.remove(selectedTasks.get(i));
-        }
-
-        tasksList.clearChoices();
-        selectedTasks.clear();
-
-        adapter.notifyDataSetChanged();
-
         TextView textView = findViewById(R.id.textview1);
         StringBuilder stringBuilder = new StringBuilder(100);
 
@@ -114,5 +92,26 @@ public class MainActivity extends AppCompatActivity {
         }
 
         textView.setText(stringBuilder.toString());
+    }
+
+    public void add_task(View view) {
+        EditText taskName = findViewById(R.id.task_name);
+        String task = taskName.getText().toString();
+        if (!task.isEmpty()) {
+            adapter.add(task);
+            taskName.setText("");
+            adapter.notifyDataSetChanged();
+        }
+    }
+
+    public void remove_task(View view) {
+        for (int i = 0; i < selectedTasks.size(); i++) {
+            adapter.remove(selectedTasks.get(i));
+        }
+
+        tasksList.clearChoices();
+        selectedTasks.clear();
+
+        adapter.notifyDataSetChanged();
     }
 }
