@@ -10,9 +10,16 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import android.widget.AdapterView;
+import android.widget.TextView;
+
+import com.top.todoapp.models.Tag;
+import com.top.todoapp.models.ToDo;
+import com.top.todoapp.utils.DbHelper2;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -62,5 +69,50 @@ public class MainActivity extends AppCompatActivity {
         selectedTasks.clear();
 
         adapter.notifyDataSetChanged();
+
+        TextView textView = findViewById(R.id.textview1);
+        StringBuilder stringBuilder = new StringBuilder(100);
+
+        DbHelper2 dbHelper2 = new DbHelper2(this);
+
+        Tag tag1 = new Tag("Покупки");
+        Tag tag2 = new Tag("Важно");
+        Tag tag3 = new Tag("Помотреть");
+        Tag tag4 = new Tag("Работа");
+
+        int tagId1 = dbHelper2.createTag(tag1);
+        int tagId2 = dbHelper2.createTag(tag2);
+        int tagId3 = dbHelper2.createTag(tag3);
+        int tagId4 = dbHelper2.createTag(tag4);
+
+
+        ToDo toDo1 = new ToDo("notebook", 0);
+        ToDo toDo2 = new ToDo("tv", 0);
+        ToDo toDo3 = new ToDo("mobile", 0);
+        ToDo toDo4 = new ToDo("call parent", 0);
+        ToDo toDo5 = new ToDo("drive", 0);
+        ToDo toDo6 = new ToDo("programming", 0);
+
+
+        int toDoId1 = dbHelper2.createTodo(toDo1, new int[]{tagId1});
+        int toDoId2 = dbHelper2.createTodo(toDo2, new int[]{tagId1, tagId3});
+        int toDoId3 = dbHelper2.createTodo(toDo3, new int[]{tagId1});
+        int toDoId4 = dbHelper2.createTodo(toDo4, new int[]{tagId2});
+        int toDoId5 = dbHelper2.createTodo(toDo5, new int[]{tagId4, tagId2});
+        int toDoId6 = dbHelper2.createTodo(toDo6, new int[]{tagId4});
+
+
+        List<Tag> tagList = dbHelper2.getAll();
+
+        for (Tag tag : tagList) {
+            stringBuilder.append(tag.getName() + " : ");
+            List<ToDo> list = dbHelper2.getAllToDoByTag(tag.getName());
+            int count = 1;
+            for (ToDo todo : list) {
+                stringBuilder.append("\n " + count++ + ") " + todo.getNote() + " \n ");
+            }
+        }
+
+        textView.setText(stringBuilder.toString());
     }
 }

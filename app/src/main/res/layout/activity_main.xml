@@ -40,6 +40,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textview1"
+            android:choiceMode="multipleChoice"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="MissingConstraints" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
