@@ -33,9 +33,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Collections.addAll(tasks, "First", "Second", "Third");
+        DbHelper2 dbHelper2 = new DbHelper2(this);
+        ArrayList<String> tasks2 = new ArrayList<>();
+        List<ToDo> toDos =  dbHelper2.getAllToDo();
+        for(ToDo toDo: toDos){
+            tasks2.add(toDo.getNote());
+        }
         tasksList = findViewById(R.id.listview1);
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, tasks);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, tasks2);
         tasksList.setAdapter(adapter);
 
         tasksList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -48,12 +53,11 @@ public class MainActivity extends AppCompatActivity {
                     selectedTasks.remove(user);
             }
         });
-        TextView textView = findViewById(R.id.textview1);
-        StringBuilder stringBuilder = new StringBuilder(100);
+/*        TextView textView = findViewById(R.id.textview1);
+        StringBuilder stringBuilder = new StringBuilder(100);*/
 
-        DbHelper2 dbHelper2 = new DbHelper2(this);
 
-        Tag tag1 = new Tag("Покупки");
+        /*Tag tag1 = new Tag("Покупки");
         Tag tag2 = new Tag("Важно");
         Tag tag3 = new Tag("Помотреть");
         Tag tag4 = new Tag("Работа");
@@ -77,10 +81,10 @@ public class MainActivity extends AppCompatActivity {
         int toDoId3 = dbHelper2.createTodo(toDo3, new int[]{tagId1});
         int toDoId4 = dbHelper2.createTodo(toDo4, new int[]{tagId2});
         int toDoId5 = dbHelper2.createTodo(toDo5, new int[]{tagId4, tagId2});
-        int toDoId6 = dbHelper2.createTodo(toDo6, new int[]{tagId4});
+        int toDoId6 = dbHelper2.createTodo(toDo6, new int[]{tagId4});*/
 
 
-        List<Tag> tagList = dbHelper2.getAll();
+/*        List<Tag> tagList = dbHelper2.getAll();
 
         for (Tag tag : tagList) {
             stringBuilder.append(tag.getName() + " : ");
@@ -91,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        textView.setText(stringBuilder.toString());
+        textView.setText(stringBuilder.toString());*/
     }
 
     public void add_task(View view) {
